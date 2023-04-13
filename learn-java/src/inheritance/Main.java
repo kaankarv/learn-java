@@ -16,6 +16,12 @@ public class Main {
         car.start();
         bus.start();
         bus2.start();
+        bus2.stop();
+
+        Vehicle[] vehicles = new Vehicle[5];
+        vehicles[0] = car;
+        vehicles[1] = bus;
+        vehicles[2] = bus2;
 
 }
 }
