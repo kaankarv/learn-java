@@ -1,6 +1,7 @@
 package nLayeredDemo.business.concretes;
 
 import nLayeredDemo.business.abstracts.ProductService;
+import nLayeredDemo.core.LoggerService;
 import nLayeredDemo.dataAccess.abstracts.ProductDao;
 import nLayeredDemo.entities.concretes.Product;
 
@@ -9,10 +10,12 @@ import java.util.List;
 public class ProductManager implements ProductService {
 
     private ProductDao productDao;
+    private LoggerService loggerService;
 
-    public ProductManager(ProductDao productDao) {
+    public ProductManager(ProductDao productDao, LoggerService loggerService) {
         super();
         this.productDao = productDao;
+        this.loggerService = loggerService;
     }
 
     @Override
@@ -23,6 +26,7 @@ public class ProductManager implements ProductService {
             return;
         }
         this.productDao.add(product);
+        this.loggerService.logToSystem("urun eklendi :" + product.getName());
     }
 
     @Override
